@@ -26,10 +26,24 @@ Route::get('/app.reservation', function () {
     return view('reservation');
 });
 
+Route::get('/menus', function () {
+    return view('nosMenus');
+});
+
+
+Route::get('/livraisons', function () {
+    return view('livraisons');
+});
+
+Route::get('/abonnements', function () {
+    return view('abonnements');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 require __DIR__.'/auth.php';
