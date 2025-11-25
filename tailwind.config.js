@@ -6,8 +6,8 @@ module.exports = {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        './resources/js/**/*.js',  // <-- ajout
-        './resources/css/**/*.css' // <-- ajout (parfois utile)
+        './resources/js/**/*.js',
+        './resources/css/**/*.css'
     ],
 
     theme: {
@@ -15,6 +15,12 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+
+            colors: {
+                primary: '#365413',
+                secondary: '#ff6b6b',
+                accent: '#00c896',
+            }
         },
     },
 

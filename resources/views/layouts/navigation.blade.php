@@ -3,7 +3,7 @@
 
         <a href="{{ url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-        <img src="images/parkslot.png" class="h-8 w-auto"/>
+        <img src="images/logo.png" class="h-12 w-auto"/>
     </span>
         </a>
 
@@ -49,17 +49,15 @@
             @else
                 <div class="flex space-x-2">
                     <a href="{{ route('login') }}"
-                       class="text-white bg-blue-950 hover:bg-blue-800 focus:ring-4 focus:outline-none
-                              focus:ring-blue-700 font-medium rounded-lg text-sm px-4 py-2 text-center
-                              dark:bg-blue-900 dark:hover:bg-blue-700 dark:focus:ring-blue-700">
+                       class="text-white bg-primary hover:bg-primary-dark focus:ring-4 focus:outline-none
+                       focus:ring-primary font-medium rounded-lg text-sm px-4 py-2 text-center">
                         {{ __('Se connecter') }}
                     </a>
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}"
-                           class="text-blue-950 border border-blue-950 hover:bg-blue-950 hover:text-white
-                                  focus:ring-4 focus:outline-none focus:ring-blue-700 font-medium rounded-lg
-                                  text-sm px-4 py-2 text-center dark:border-blue-500 dark:text-blue-800
-                                  dark:hover:bg-blue-600 dark:hover:text-white dark:focus:ring-blue-700">
+                           class="text-primary border border-primary hover:bg-primary hover:text-white
+                                focus:ring-4 focus:outline-none focus:ring-primary font-medium rounded-lg
+                              text-sm px-4 py-2 text-center">
                             {{ __('S\'inscrire') }}
                         </a>
                     @endif
@@ -68,5 +66,30 @@
 
         </div>
 
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="{{ url('/abonnements') }}"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100
+                              md:hover:bg-transparent md:hover:text-blue-700 md:p-0
+                              dark:text-white dark:hover:bg-gray-700 dark:hover:text-white
+                              md:dark:hover:bg-transparent">Nos abonnements</a>
+                </li>
+                <li>
+                    <a href="{{ url('/livraisons') }}"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100
+                              md:hover:bg-transparent md:hover:text-blue-700 md:p-0
+                              dark:text-white dark:hover:bg-gray-700 dark:hover:text-white
+                              md:dark:hover:bg-transparent">Livraison</a>
+                </li>
+                <li>
+                    <a href="{{ url('/menus') }}"
+                       class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100
+                              md:hover:bg-transparent md:hover:text-blue-700 md:p-0
+                              dark:text-white dark:hover:bg-gray-700 dark:hover:text-white
+                              md:dark:hover:bg-transparent">Nos menus</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
