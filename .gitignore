@@ -19,3 +19,4 @@ yarn-error.log
 **~
 docker/mysql_data
 docker/log
+data/

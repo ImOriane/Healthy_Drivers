@@ -32,7 +32,7 @@ SECTION_COLOR     := $(BOLD)$(MAGENTA)
 # ==============================================================================
 # Service Name
 # ==============================================================================
-SERVICE ?= php
+SERVICE ?= web
 
 # ==============================================================================
 # Phony Targets Declaration
@@ -119,6 +119,7 @@ infra-stop: ##@ Stop the Docker infrastructure
 	@printf "$(HEADER_COLOR)Stopping Docker infrastructure...$(RESET)\n"
 	@docker compose down
 
+
 infra-logs: ##@ Show logs from the Docker infrastructure
 	@printf "$(HEADER_COLOR)Showing Docker logs...$(RESET)\n"
 	@docker compose logs -f
@@ -146,6 +147,10 @@ infra-keygen: ##@ Generate application key in the Docker container
 infra-composer-install: ##@ Install Composer dependencies in the Docker container
 	@printf "$(HEADER_COLOR)Installing Composer dependencies in Docker container...$(RESET)\n"
 	@docker compose exec $(SERVICE) composer install
+
+infra-logs: ##@ Show Docker service logs
+	@printf "$(HEADER_COLOR)Show Docker service logs...$(RESET)\n"
+	@docker compose logs $(SERVICE)
 
 
 # ==============================================================================
