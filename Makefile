@@ -148,10 +148,6 @@ infra-composer-install: ##@ Install Composer dependencies in the Docker containe
 	@printf "$(HEADER_COLOR)Installing Composer dependencies in Docker container...$(RESET)\n"
 	@docker compose exec $(SERVICE) composer install
 
-infra-logs: ##@ Show Docker service logs
-	@printf "$(HEADER_COLOR)Show Docker service logs...$(RESET)\n"
-	@docker compose logs $(SERVICE)
-
 
 # ==============================================================================
 # Run Environment
