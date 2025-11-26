@@ -115,6 +115,10 @@ infra-up: ##@ Start the Docker infrastructure
 	@printf "$(HEADER_COLOR)Starting Docker infrastructure...$(RESET)\n"
 	@docker compose up -d --build
 
+infra-perm: ##@ Set up permissions for data directory
+	@printf "$(HEADER_COLOR)Setting permissions for data directory...$(RESET)\n"
+	@sudo chown -R $$USER:$$USER ~/Dev/Healthy_Drivers/data
+
 infra-stop: ##@ Stop the Docker infrastructure
 	@printf "$(HEADER_COLOR)Stopping Docker infrastructure...$(RESET)\n"
 	@docker compose down
