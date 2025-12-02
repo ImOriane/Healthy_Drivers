@@ -2,9 +2,9 @@
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
         <a href="{{ url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-        <img src="images/logo.png" class="h-12 w-auto"/>
-    </span>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                <img src="{{ asset('images/logo.png') }}" class="h-12 w-auto" alt="Logo"/>
+            </span>
         </a>
 
 

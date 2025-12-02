@@ -12,7 +12,7 @@ class MenuSeeder extends Seeder
     {
         $menus = [
             [
-                'image' => '/images/menus/ratatouille.jpg',
+                'image' => 'images/menus/ratatouille.jpg',
                 'titre' => 'RATATOUILLE',
                 'slug' => 'ratatouille',
                 'description' => 'Végétarien · Plat chaud',
@@ -41,7 +41,7 @@ class MenuSeeder extends Seeder
                 ])
             ],
             [
-                'image' => '/images/menus/gratin-dauphinois.jpg',
+                'image' => 'images/menus/gratin-dauphinois.jpg',
                 'titre' => 'GRATIN DAUPHINOIS',
                 'slug' => 'gratin-dauphinois',
                 'description' => 'Végétarien · Plat chaud · Crémeux',
@@ -67,7 +67,7 @@ class MenuSeeder extends Seeder
                 ])
             ],
             [
-                'image' => '/images/menus/poulet-curry.jpg',
+                'image' => 'images/menus/poulet-curry.jpg',
                 'titre' => 'POULET CURRY COCO À LA COURGE BUTTERNUT',
                 'slug' => 'poulet-curry-coco-courge-butternut',
                 'description' => 'Plat chaud · Épicé',
@@ -95,7 +95,7 @@ class MenuSeeder extends Seeder
                 ])
             ],
             [
-                'image' => '/images/menus/nouilles-legumes.jpg',
+                'image' => 'images/menus/nouilles-legumes.jpg',
                 'titre' => 'NOUILLES SAUTÉ AUX LÉGUMES',
                 'slug' => 'nouilles-saute-legumes',
                 'description' => 'Végétarien · Plat chaud · Peu calorique',
@@ -123,7 +123,7 @@ class MenuSeeder extends Seeder
                 ])
             ],
             [
-                'image' => '/images/menus/lasagne-vegetarien.jpg',
+                'image' => 'images/menus/lasagne-vegetarien.jpg',
                 'titre' => 'LASAGNE VÉGÉTARIEN',
                 'slug' => 'lasagne-vegetarien',
                 'description' => 'Végétarien · Plat chaud',
@@ -150,7 +150,7 @@ class MenuSeeder extends Seeder
                 ])
             ],
             [
-                'image' => '/images/menus/pate-poivron.jpg',
+                'image' => 'images/menus/pate-poivron.jpg',
                 'titre' => 'PÂTE À LA CRÈME DE POIVRON',
                 'slug' => 'pate-creme-poivron',
                 'description' => 'Végétarien · Plat chaud',
@@ -176,7 +176,7 @@ class MenuSeeder extends Seeder
                 ])
             ],
             [
-                'image' => '/images/menus/quiche-legumes.jpg',
+                'image' => 'images/menus/quiche-legumes.jpg',
                 'titre' => 'QUICHE AUX LÉGUMES',
                 'slug' => 'quiche-legumes',
                 'description' => 'Végétarien · Plat chaud',
@@ -203,7 +203,7 @@ class MenuSeeder extends Seeder
                 ])
             ],
             [
-                'image' => '/images/menus/risotto-burrata.jpg',
+                'image' => 'images/menus/risotto-burrata.jpg',
                 'titre' => 'RISOTTO TOMATE BURRATA',
                 'slug' => 'risotto-tomate-burrata',
                 'description' => 'Végétarien · Plat chaud',
