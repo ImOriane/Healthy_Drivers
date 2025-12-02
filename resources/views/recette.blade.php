@@ -2,7 +2,7 @@
     <!-- Hero Section avec le titre de la recette -->
     <section class="w-full bg-[#E67E22] pt-24 pb-12 mt-16">
         <div class="max-w-7xl mx-auto px-6">
-            <a href="/menus" class="inline-flex items-center text-white hover:text-gray-200 mb-4 transition-colors">
+            <a href="{{ url('/menus') }}" class="inline-flex items-center text-white hover:text-gray-200 mb-4 transition-colors">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
@@ -64,7 +64,7 @@
                     </div>
 
                     <!-- Bouton S'abonner -->
-                    <a href="/abonnements" class="w-full bg-[#6B8E23] hover:bg-[#5a7a1e] text-white font-bold py-4 rounded-lg transition-colors duration-300 flex items-center justify-center">
+                    <a href="{{ url('/abonnements') }}" class="w-full bg-[#6B8E23] hover:bg-[#5a7a1e] text-white font-bold py-4 rounded-lg transition-colors duration-300 flex items-center justify-center">
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                         </svg>
@@ -95,7 +95,7 @@
                             @endforeach
                         </ul>
                     @else
-                        <a href="/abonnements" class="block">
+                        <a href="{{ url('/abonnements') }}" class="block">
                             <div class="bg-[#EFE0D2] p-6 rounded-lg text-center hover:bg-[#e5d5c5] transition-colors cursor-pointer">
                                 <svg class="w-12 h-12 text-gray-400 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
