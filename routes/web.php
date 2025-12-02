@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IdeaController;
 use App\Http\Livewire\ReservationForm;
+use App\Http\Controllers\MenuController;
 
 
 /*
@@ -26,9 +27,9 @@ Route::get('/app.reservation', function () {
     return view('reservation');
 });
 
-Route::get('/menus', function () {
-    return view('nosMenus');
-});
+
+Route::get('/menus', [MenuController::class, 'index']);
+
 
 
 Route::get('/livraisons', function () {
