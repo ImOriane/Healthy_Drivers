@@ -82,6 +82,7 @@ npm run dev
 ### 8. Initialisation de la base de données
 ```bash
 php artisan migrate
+php artisan menus:generate-slugs
 php artisan db:seed
 ```
 
