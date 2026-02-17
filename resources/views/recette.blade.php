@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- Hero Section avec le titre de la recette -->
-    <section class="w-full bg-[#E67E22] pt-24 pb-12 mt-16">
+    <section class="w-full bg-[#E67E22] pt-16 pb-12 mt-16">
         <div class="max-w-7xl mx-auto px-6">
             <a href="{{ url('/menus') }}" class="inline-flex items-center text-white hover:text-gray-200 mb-4 transition-colors">
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
