@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- Hero Section Orange -->
-    <section class="w-full bg-[#E67E22] pt-24 pb-12 mt-16">
+    <section class="w-full bg-[#E67E22] pt-16 pb-12 mt-16">
         <div class="max-w-7xl mx-auto px-6">
             <h1 class="text-4xl md:text-5xl font-bold text-white uppercase">NOS MENUS</h1>
         </div>
