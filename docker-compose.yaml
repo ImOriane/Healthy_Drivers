@@ -1,0 +1,20 @@
+
+services:
+  web:
+    build: .
+    container_name: HealthyDrivers_web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+  db:
+    image: mariadb:11.3
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MARIADB_DATABASE: HealthyDrivers
+      MARIADB_USER: HealthyDrivers
+      MARIADB_PASSWORD: HealthyDrivers
+      MARIADB_ROOT_PASSWORD: root
+    volumes:
+      - ./data/db:/var/lib/mysql

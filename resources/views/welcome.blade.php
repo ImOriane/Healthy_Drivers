@@ -2,15 +2,14 @@
 
     <div class="relative flex flex-col items-center justify-center min-h-screen pt-16 bg-fond">
 
-        <!-- HERO SECTION -->
+
         <section class="pt-32 pb-40 w-full bg-[#A7D74D] relative overflow-hidden">
 
-            <!-- Carottes en background répétées -->
             <div class="absolute inset-0 bg-[url('/images/carotte.png')] bg-repeat opacity-70"></div>
 
             <div class="relative z-10 flex flex-col md:flex-row items-center justify-between max-w-6xl mx-auto px-6">
 
-                <!-- Texte -->
+
                 <div class="max-w-xl text-white">
                     <h1 class="text-4xl font-extrabold mb-6">
                         Mangez mieux sans effort
