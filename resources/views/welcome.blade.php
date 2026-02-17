@@ -28,9 +28,9 @@
                     </a>
                 </div>
 
-                <!-- Image assiette -->
+
                 <div class="relative">
-                    <img src="/images/assiette.png"
+                    <img src="{{ asset("images/asiette.png") }}"
                          class="w-[520px] absolute -bottom-20 right-0 md:right-[-50px] z-0">
                 </div>
 
