@@ -37,7 +37,7 @@
                         en ligne, et livraison chez vous avec formules d’abonnement flexibles.
                         Votre bien-être est notre mission.
                     </p>
-                    <a href="#"
+                    <a href="{{ url('/abonnements') }}"
                        class="bg-orange-500 text-white px-6 py-3 font-semibold rounded shadow hover:bg-orange-600">
                         S’abonner
                     </a>
