@@ -15,8 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-cover bg-center bg-no-repeat"
-         style="background-image: url('images/parking.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-cover bg-center bg-no-repeat bg-[#EFE0D2]">
 
     <div>
                 <a href="/">

@@ -17,8 +17,12 @@ Route::get('/app.reservation', function () {
 Route::get('/menus', [MenuController::class, 'index']);
 Route::get('/menus/{slug}', [MenuController::class, 'show'])->name('menu.show');
 
-Route::get('/livraisons', function () {
-    return view('livraisons');
+Route::get('/concept', function () {
+    return view('concept');
+});
+
+Route::get('/livraison', function () {
+    return view('livraison');
 });
 
 Route::get('/abonnements', function () {
