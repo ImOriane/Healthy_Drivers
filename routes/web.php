@@ -34,5 +34,36 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::middleware('auth')->get('/demo-subscribe1', function () {
+    $user = auth()->user();
+    $user->is_subscribed = true;
+    $user->abonnement="Economique";
+    $user->save();
 
+    return redirect('/')->with('success', 'Vous êtes maintenant abonné !');
+});
+Route::middleware('auth')->get('/demo-subscribe2', function () {
+    $user = auth()->user();
+    $user->is_subscribed = true;
+    $user->abonnement="Classique";
+    $user->save();
+
+    return redirect('/')->with('success', 'Vous êtes maintenant abonné !');
+});
+Route::middleware('auth')->get('/demo-subscribe3', function () {
+    $user = auth()->user();
+    $user->is_subscribed = true;
+    $user->abonnement="Premium";
+    $user->save();
+
+    return redirect('/')->with('success', 'Vous êtes maintenant abonné !');
+});
+Route::middleware('auth')->post('/demo-desabo', function () {
+    $user = auth()->user();
+    $user->is_subscribed = false;
+    $user->abonnement=Null;
+    $user->save();
+
+    return redirect('/')->with('success', 'Vous êtes maintenant désabonné !');
+});
 require __DIR__.'/auth.php';

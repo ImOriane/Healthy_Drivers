@@ -6,6 +6,14 @@
     </x-slot>
 
     <div class="py-12 bg-[#EFE0D2]">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6 ">
+            <div class="p-4 sm:p-8  shadow sm:rounded-lg bg-white flex justify-center">
+                <div class="max-w-xl">
+                    @include('profile.partials.abo')
+                </div>
+            </div>
+
+            <div class="py-12 bg-[#EFE0D2]">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8  shadow sm:rounded-lg bg-white">
                 <div class="max-w-xl">

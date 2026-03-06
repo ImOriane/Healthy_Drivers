@@ -23,9 +23,9 @@
                         <li>🥕 Accès au recettes proposées sur le site web</li>
                     </ul>
 
-                    <button class="w-full bg-[#F37021] text-white font-bold py-2 hover:bg-[#d75a00] transition">
+                    <a href="{{ url('/demo-subscribe1') }}" class="w-full bg-[#F37021] text-white font-bold py-2 hover:bg-[#d75a00] transition text-center inline-block">
                         Choisir
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -47,9 +47,9 @@
                         <li>🥕 Accès recettes adaptées à la continuité de votre régime</li>
                     </ul>
 
-                    <button class="w-full bg-[#F37021] text-white font-bold py-2 hover:bg-[#d75a00] transition">
+                    <a href="{{ url('/demo-subscribe2') }}" class="w-full bg-[#F37021] text-white font-bold py-2 hover:bg-[#d75a00] transition text-center inline-block">
                         Choisir
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -71,9 +71,9 @@
                         <li>🥕 Accès recettes adaptées à la continuité de votre régime</li>
                     </ul>
 
-                    <button class="w-full bg-[#F37021] text-white font-bold py-2 hover:bg-[#d75a00] transition">
+                    <a href="{{ url('/demo-subscribe3') }}" class="w-full bg-[#F37021] text-white font-bold py-2 hover:bg-[#d75a00] transition text-center inline-block">
                         Choisir
-                    </button>
+                    </a>
                 </div>
             </div>
 

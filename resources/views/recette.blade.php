@@ -1,4 +1,7 @@
 <x-app-layout>
+    @php
+        $isSubscribed = auth()->check() && auth()->user()->is_subscribed;
+    @endphp
     <!-- Hero Section avec le titre de la recette -->
     <section class="w-full bg-[#E67E22] pt-16 pb-12 mt-16">
         <div class="max-w-7xl mx-auto px-6">
@@ -15,12 +18,6 @@
     <!-- Section principale -->
     <section class="w-full bg-[#EFE0D2] py-16 min-h-screen">
         <div class="max-w-6xl mx-auto px-6">
-
-            <!-- Vérification si l'utilisateur est abonné -->
-            @php
-                $isSubscribed = false; // Changez cette valeur selon votre logique d'abonnement
-                // Plus tard remplacer par : $isSubscribed = auth()->check() && auth()->user()->hasActiveSubscription();
-            @endphp
 
             @if(!$isSubscribed)
                 <!-- Version verrouillée - Image floutée avec overlay -->
