@@ -1,40 +1,33 @@
-FROM webdevops/php-nginx:8.3-alpine
+FROM php:8.4-apache
 
-# Installation dans votre Image du minimum pour que Docker fonctionne
-RUN apk add oniguruma-dev libxml2-dev
-RUN docker-php-ext-install \
-        bcmath \
-        ctype \
-        fileinfo \
-        mbstring \
-        pdo_mysql \
-        xml
+# Apache
+RUN a2enmod rewrite
 
-# Installation dans votre image de Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Dépendances système
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libzip-dev \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libicu-dev \
+    && docker-php-ext-install \
+    pdo_mysql \
+    zip \
+    intl \
+    mbstring \
+    exif \
+    pcntl \
+    bcmath \
+    gd
 
-# Installation dans votre image de NodeJS
-RUN apk add nodejs npm
+# Installer Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-ENV WEB_DOCUMENT_ROOT /app/public
-ENV APP_ENV production
-WORKDIR /app
-COPY . .
+# Document root Laravel
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+RUN sed -ri 's!/var/www/html!/var/www/html/public!g' \
+    /etc/apache2/sites-available/*.conf
 
-# Installation et configuration de votre site pour la production
-# https://laravel.com/docs/10.x/deployment#optimizing-configuration-loading
-RUN composer install --no-interaction --optimize-autoloader --no-dev
-# Generate security key
-RUN php artisan key:generate
-# Optimizing Configuration loading
-RUN php artisan config:cache
-# Optimizing Route loading
-RUN php artisan route:cache
-# Optimizing View loading
-RUN php artisan view:cache
-
-# Compilation des assets de Breeze (ou de votre site)
-RUN npm install
-RUN npm run build
-
-RUN chown -R application:application .
+WORKDIR /var/www/html

@@ -1,20 +1,38 @@
-
 services:
-  web:
+  app:
     build: .
-    container_name: HealthyDrivers_web
-    restart: unless-stopped
+    container_name: laravel_app
     ports:
-      - "8080:80"
+      - "8000:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+
   db:
-    image: mariadb:11.3
-    restart: unless-stopped
+    image: mysql:8.0
+    container_name: laravel_db
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: laravel
+      MYSQL_ROOT_PASSWORD: root
     ports:
       - "3306:3306"
-    environment:
-      MARIADB_DATABASE: HealthyDrivers
-      MARIADB_USER: HealthyDrivers
-      MARIADB_PASSWORD: HealthyDrivers
-      MARIADB_ROOT_PASSWORD: root
     volumes:
-      - ./data/db:/var/lib/mysql
+      - dbdata:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: laravel_phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+volumes:
+  dbdata:
