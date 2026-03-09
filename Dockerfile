@@ -35,11 +35,20 @@ WORKDIR /var/www/html
 # Copier le projet
 COPY . .
 
-# Installer les dépendances Laravel
-RUN composer install --no-dev --optimize-autoloader
+# Installer les dépendances
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 # Permissions Laravel
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Port
+# Générer la clé si elle n'existe pas
+RUN php artisan key:generate || true
+
+# Migrations base de données
+RUN php artisan migrate --force || true
+
+# Cache Laravel (plus rapide en prod)
+RUN php artisan config:cache || true
+RUN php artisan route:cache || true
+
 EXPOSE 80
