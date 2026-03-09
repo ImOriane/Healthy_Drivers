@@ -35,9 +35,9 @@
 
                     <div class="flex flex-col mb-6 text-center">
                         <h2 class="text-[#365413] font-bold uppercase text-lg mb-2">Classique</h2>
-                        <p class="text-3xl font-extrabold mb-2">€69.99 <span class="text-base font-normal text-gray-600">/mois</span></p>
+                        <p class="text-3xl font-extrabold mb-2">€59.99 <span class="text-base font-normal text-gray-600">/mois</span></p>
                         <p class="bg-[#FFD2B3] text-[#F37021] text-xs font-semibold uppercase inline-block py-1 px-3 rounded">
-                            6,99€/repas
+                            8,99€/repas
                         </p>
                     </div>
 
@@ -59,9 +59,9 @@
 
                     <div class="flex flex-col mb-6 text-center">
                         <h2 class="text-[#365413] font-bold uppercase text-lg mb-2">Premium</h2>
-                        <p class="text-3xl font-extrabold mb-2">€89.99 <span class="text-base font-normal text-gray-600">/mois</span></p>
+                        <p class="text-3xl font-extrabold mb-2">€70.0 <span class="text-base font-normal text-gray-600">/mois</span></p>
                         <p class="bg-[#FFD2B3] text-[#F37021] text-xs font-semibold uppercase inline-block py-1 px-3 rounded">
-                            5,71€/repas
+                            5.0€/repas
                         </p>
                     </div>
 
