@@ -37,9 +37,9 @@ RUN php artisan optimize:clear || true
 # Exposer le port utilisé par Render
 EXPOSE 10000
 
-# Commande de démarrage
+# Commande de démarrage finale
 CMD php artisan migrate --force && \
-    php artisan db:seed --class=DatabaseSeeder && \
+    php artisan db:seed --force && \
     php artisan config:cache && \
     php artisan route:cache && \
     php artisan serve --host=0.0.0.0 --port=$PORT
