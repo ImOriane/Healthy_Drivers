@@ -31,3 +31,15 @@ RUN sed -ri 's!/var/www/html!/var/www/html/public!g' \
     /etc/apache2/sites-available/*.conf
 
 WORKDIR /var/www/html
+
+# Copier le projet
+COPY . .
+
+# Installer les dépendances Laravel
+RUN composer install --no-dev --optimize-autoloader
+
+# Permissions Laravel
+RUN chown -R www-data:www-data storage bootstrap/cache
+
+# Port
+EXPOSE 80
