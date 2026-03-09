@@ -1,40 +1,45 @@
-FROM webdevops/php-nginx:8.3-alpine
+FROM php:8.2-cli
 
-# Installation dans votre Image du minimum pour que Docker fonctionne
-RUN apk add oniguruma-dev libxml2-dev
-RUN docker-php-ext-install \
-        bcmath \
-        ctype \
-        fileinfo \
-        mbstring \
-        pdo_mysql \
-        xml
+# Installer dépendances système
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libpq-dev \
+    curl \
+    sudo \
+    && docker-php-ext-install pdo pdo_pgsql
 
-# Installation dans votre image de Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Installer composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Installation dans votre image de NodeJS
-RUN apk add nodejs npm
+# Installer Node.js 20
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
 
-ENV WEB_DOCUMENT_ROOT /app/public
-ENV APP_ENV production
-WORKDIR /app
+# Dossier de travail
+WORKDIR /var/www
+
+# Copier le projet
 COPY . .
 
-# Installation et configuration de votre site pour la production
-# https://laravel.com/docs/10.x/deployment#optimizing-configuration-loading
-RUN composer install --no-interaction --optimize-autoloader --no-dev
-# Generate security key
-RUN php artisan key:generate
-# Optimizing Configuration loading
-RUN php artisan config:cache
-# Optimizing Route loading
-RUN php artisan route:cache
-# Optimizing View loading
-RUN php artisan view:cache
+# Installer dépendances Laravel
+RUN composer install --no-dev --optimize-autoloader
 
-# Compilation des assets de Breeze (ou de votre site)
-RUN npm install
-RUN npm run build
+# Installer dépendances front-end et compiler les assets
+RUN npm install && npm run build
 
-RUN chown -R application:application .
+# Donner permissions
+RUN chmod -R 775 storage bootstrap/cache
+
+# Nettoyer cache Laravel
+RUN php artisan optimize:clear || true
+
+# Exposer le port utilisé par Render
+EXPOSE 10000
+
+# Commande de démarrage finale
+CMD php artisan migrate --force && \
+    php artisan db:seed --force && \
+    php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan serve --host=0.0.0.0 --port=$PORT
