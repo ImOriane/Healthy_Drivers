@@ -1,54 +1,36 @@
-FROM php:8.4-apache
+FROM php:8.2-cli
 
-# Apache
-RUN a2enmod rewrite
-
-# Dépendances système
+# Installer dépendances système
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
-    libzip-dev \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    libicu-dev \
-    && docker-php-ext-install \
-    pdo_mysql \
-    zip \
-    intl \
-    mbstring \
-    exif \
-    pcntl \
-    bcmath \
-    gd
+    libpq-dev \
+    curl \
+    && docker-php-ext-install pdo pdo_pgsql
 
-# Installer Composer
+# Installer composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Document root Laravel
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-RUN sed -ri 's!/var/www/html!/var/www/html/public!g' \
-    /etc/apache2/sites-available/*.conf
-
-WORKDIR /var/www/html
+# Dossier de travail
+WORKDIR /var/www
 
 # Copier le projet
 COPY . .
 
-# Installer les dépendances
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+# Installer dépendances Laravel
+RUN composer install --no-dev --optimize-autoloader
 
-# Permissions Laravel
-RUN chown -R www-data:www-data storage bootstrap/cache
+# Donner permissions
+RUN chmod -R 775 storage bootstrap/cache
 
-# Générer la clé si elle n'existe pas
-RUN php artisan key:generate || true
+# Nettoyer cache Laravel
+RUN php artisan optimize:clear || true
 
-# Migrations base de données
-RUN php artisan migrate --force || true
+# Exposer le port utilisé par Render
+EXPOSE 10000
 
-# Cache Laravel (plus rapide en prod)
-RUN php artisan config:cache || true
-RUN php artisan route:cache || true
-
-EXPOSE 80
+# Commande de démarrage
+CMD php artisan migrate --force && \
+    php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan serve --host=0.0.0.0 --port=$PORT
