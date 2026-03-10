@@ -37,7 +37,7 @@
                         <h2 class="text-[#365413] font-bold uppercase text-lg mb-2">Classique</h2>
                         <p class="text-3xl font-extrabold mb-2">€59.99 <span class="text-base font-normal text-gray-600">/mois</span></p>
                         <p class="bg-[#FFD2B3] text-[#F37021] text-xs font-semibold uppercase inline-block py-1 px-3 rounded">
-                            8,99€/repas
+                            5,99€/repas
                         </p>
                     </div>
 
